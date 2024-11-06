@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
-// Prueba de cambios desde Github
+// Segunda prueba
 using System.Windows.Forms;
 using System.Threading;
 
