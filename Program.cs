@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
-// Librería para dibujar figuras geométricas
+// Prueba de cambios desde Github
 using System.Windows.Forms;
 using System.Threading;
 
