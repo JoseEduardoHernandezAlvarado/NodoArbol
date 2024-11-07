@@ -4,9 +4,8 @@ using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Threading;
-using NodoArbol;
 
-namespace Arbol_Binario
+namespace NodoArbol
 {
     class Arbol_Binario
     {

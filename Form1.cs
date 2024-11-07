@@ -21,7 +21,7 @@ namespace NodoArbol
         int Dato = 0;
         int cont = 0;
 
-        NodoArbol mi_Arbol = new NodoArbol(null);
+        Nodo_Arbol mi_Arbol = new NodoArbol(null);
 
         private void Form1_Load(object sender, EventArgs e)
         {
