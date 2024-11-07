@@ -13,7 +13,7 @@ namespace Arbol_Binario
         public Nodo_Arbol Raiz;
         public Nodo_Arbol aux;
 
-        // Constructor por defecto hthfhg
+        // Constructor por defecto hblaba
         public Arbol_Binario()
         {
             aux = new Nodo_Arbol();
