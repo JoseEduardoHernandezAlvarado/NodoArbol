@@ -17,6 +17,12 @@ namespace NodoArbol
             InitializeComponent();
         }
 
+        //Declaración de variables a utilizar
+        int Dato = 0;
+        int cont = 0;
+
+        NodoArbol mi_Arbol = new NodoArbol(null);
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
