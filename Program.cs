@@ -162,6 +162,118 @@ namespace NodoArbol
                 }
             }
         }
+        // Funciones para el dibujo de los nodos de Árbol Binario en el Formulario
+        // Variable que define el tamaño de los círculos que representan los nodos del árbol.
+        private const int Radio = 30;
+        private const int DistaciaH = 80;  // Variable para manejar distancia horizontal
+        private const int DistaciaV = 10;  // Variable para manejar distancia vertical
+
+        private int CoordenadaX;          // Variable para manejar posición Eje X
+        private int CoordenadaY;          // Variable para manejar posición Eje Y
+
+        // Función para encontrar la posición donde se creará (dibujara) el nodo
+        public void PosicionNodo(ref int xmin, int ymin)
+        {
+            int aux1, aux2;
+            CoordenadaY = (int)(ymin + Radio / 2);
+
+            // Obtener la posición del Sub-Arbol izquierdo
+            if (Izquierdo != null)
+            {
+                izquierdo.PosicionNado(ref xmin, ymin + Radio + DistanciaV);
+            }
+
+            if ((Izquierdo != null) && (Derecho != null))
+            {
+                xmin += DistanciaH;
+            }
+
+            // Si existe el nodo derecho y el nodo izquierdo deja un espacio entre ellos
+            if (Derecho != null)
+            {
+                Derecho.PosicionNosdo(ref xmin, ymin + Radios + DistanciaV);
+            }
+
+            if (Izquierdo != null && Derecho != null)
+            {
+                CoordenadaX = (int)((Izquierdo.CoordenadaX + Derecho.CoordenadaX) / 2);
+            }
+            else if (Izquierdo != null)
+            {
+                aux1 = Izquierdo.CoordenadaX;
+                Izquierdo.CoordenadaX = CoordenadaX - 80;
+                CoordenadaX = aux1;
+            }
+            else if (Derecho != null)
+            {
+                aux2 = Derecho.CoordenadaX;
+                // no hay nodo izquierdo, centrar en nodo derecho
+                Derecho.CoordenadaX = CoordenadaX + 80;
+                CoordenadaX = aux2;
+            }
+            else
+            {
+                CoordenadaX = (int)(xmin + Radio / 2);
+                xmin = +Radio;
+            }
+        }
+
+        // Funcion para dibujar las ramas de los nodos izquierdo y derecho
+        public void DibujarRamas(Graphics grafo, Pen Lapiz)
+        {
+            if (Izquiedo != null) // Dibujara rama izquierda
+            {
+                grafo.DrawLine(Lipiz, CoordenadaX, CoordenadaY, Izquierdo.CoordenadaX, Izquierdo.CoordenadaY);
+                Derecho.DibujarRamas(grafo, Lapiz);
+            }
+        }
+
+        // Funcion para dibujar el nodo en la posición especificada
+        public void DibujarNodo(Graphics grafo, Font fuente, Brush Relleno, Brush RellenoFuente, Pen Lapiz, Brush encuentro)
+        {
+            // Dibuja el contorno del nodo
+            Rectangle rect = new Rectangle((int)(CoordenadaX - Radio / 2), (int)(CoordenadaY - Radio / 2), Radio, Radio);
+            prueba = new Rectangle((int)(CoordenadaX - Radio / 2), (int)(CoordenadaY - Radio / 2), Radio, Radio);
+
+            grafo.FillEllinpse(encuentro, rect);
+            grafo.FillEllinpse(Relleno, rect);
+            grafo.DrawEllinpse(Lapiz, rect);
+
+            // Para dibujar el nombre del nodo, es decir el contenido
+            StringFormat formato = new StringFormat();
+
+            formato.Alignment = StringAlignment.Center;
+            formato.LineAlignment = StringAlignment.Center;
+            grafo DrewString(info.ToString(), fuente RellenoFuente, CoordenadaX, CoordenadaY, formato);
+
+            // Dibuja los nodos hijos derecho e izquierdo
+            if (Izquierdo != null)
+            {
+                Izquierdo.DibujarNodo(grafo, fuente, Relleno, RellenoFuente, Lapiz, encuentro);
+            }
+            if (Derecho != null)
+            {
+                Derecho.DibujarNodo(grafo, fuente, Relleno, RellenoFuente, Lapiz, encuentro);
+            }
+        }
+
+        // Función para dar color al nodo del Árbol Binario
+        public void colorear(Graphics grafo, Font fuente, Brush Relleno, Brush RellenoFuente, Pen Lapiz)
+        {
+            // Dibuja el contorno del nodo
+            Rectangle rect = new Rectangle((int)(CoordenadaX - Radio / 2), (int)(CoordenadaY - Radio / 2), Radio, Radio);
+            Prueba = new Rectangle((int)(CoordenadaX - Radio / 2), (int)(CoordenadaY - Radio / 2), Radio, Radio);
+
+            grafo.FillEllipse(Relleno, rect);
+            grafo.DrawEllipse(Lapiz, rect);
+
+            // Dibuja el nombre
+            StringFormat formato = new StringFormat();
+
+            formato.Alignment = StringAlignment.Center;
+            formato.LineAlignment = StringAlignment.Center;
+            grafo.DrawString(info.ToString(), fuente, RellenoFuente, CoordenadaX, CoordenadaY, formato);
+        }
 
         // Función de recorrido del árbol Binario (Búsqueda de nodo)
         public void Buscar(int x, Nodo_Arbol t)
@@ -192,5 +304,6 @@ namespace NodoArbol
             // Método de ejemplo para calcular alturas (debes implementar la lógica de altura aquí).
             return 0; // Ajusta esta línea con la lógica necesaria.
         }
+
     }
 }
