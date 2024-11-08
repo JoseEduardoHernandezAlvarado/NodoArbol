@@ -54,7 +54,7 @@ namespace NodoArbol
                     mi_Arbol.Insertar(Dato);
 
                     txtDato.Clear;
-                    txtDarto.Focus;
+                    txtDato.Focus;
 
                     cont++;
 

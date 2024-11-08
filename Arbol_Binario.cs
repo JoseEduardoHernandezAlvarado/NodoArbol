@@ -33,7 +33,7 @@ namespace NodoArbol
             }
             else
             {
-                Raiz = Raiz Insertar(x, Raiz, Raiz.nivel);
+                Raiz = Raiz.Insertar(x, Raiz, Raiz.nivel);
             }
         }
 
@@ -49,15 +49,15 @@ namespace NodoArbol
 
         // Funciones para el dibujo del Árbol Binario en el Formulario
         // Función que dibuja el Árbol Binario
-        public void DibujarArbol(Graphics grafo, Font fuente, Brush Relleno, Bush RellenoFuente, Pen Lapiz, Brush encuentro)
+        public void DibujarArbol(Graphics grafo, Font fuente, Brush Relleno, Brush RellenoFuente, Pen Lapiz, Brush encuentro)
         {
             int x = 400;  // Posiciones de raíz del árbol
             int y = 75;
 
             if (Raiz == null) return;
 
-            Raiz PosicionNodo(ref x, y);   // Posición de cada nodo
-            Raiz.DibujarRmas(grafo, Lapiz);  // Dibuja los Enlaces entre nodos
+            Raiz.PosicionNodo(ref x, y);   // Posición de cada nodo
+            Raiz.DibujarRamas(grafo, Lapiz);  // Dibuja los Enlaces entre nodos
             Raiz.DibujarNodo(grafo, fuente, Relleno, RellenoFuente, Lapiz, encuentro); // Dibujar todos los Nodos
         }
         public int x1 = 400;        // Posiciones iniciales de la raíz del arbol
@@ -67,7 +67,7 @@ namespace NodoArbol
         public void colorear(Graphics grafo, Font fuente, Brush Relleno, Brush RellenoFuente, Pen Lapiz, Nodo_Arbol Raiz, bool post, bool inor, bool preor)
         {
             Brush entorno = Brushes.Red;
-            if(inor = true)
+            if(inor == true)
             {
                 if (Raiz != null)
                 {
