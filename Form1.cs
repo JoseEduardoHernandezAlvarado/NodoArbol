@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace NodoArbol
 {
@@ -21,7 +22,7 @@ namespace NodoArbol
         int Dato = 0;
         int cont = 0;
 
-        Nodo_Arbol mi_Arbol = new Nodo_Arbol(null); //Creación del objeto arbol
+        Arbol_Binario mi_Arbol = new Arbol_Binario(null); //Creación del objeto arbol
         Graphics g; // Definición del objeto grafico
 
         //Evento del formulario que permitira dibujar el arbol binario
@@ -38,13 +39,13 @@ namespace NodoArbol
         //Evento que permitira insertar un nodo al arbol (código del boton "Insertar nodo" del formulario mostrado en la figura)
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            if(txtDato.Text == "")
+            if(textBox1.Text == "")
             {
                 MessageBox.Show("Debe ingresar un valor.");
             }
             else
             {
-                Dato = int.Parse(txtDato.Text);
+                Dato = int.Parse(textBox1.Text);
                 if(Dato <= 0 || Dato >= 100)
                 {
                     MessageBox.Show("Debe ingresar un valor entre 1 y 99", "Error de ingreso");
@@ -53,8 +54,8 @@ namespace NodoArbol
                 {
                     mi_Arbol.Insertar(Dato);
 
-                    txtDato.Clear;
-                    txtDato.Focus;
+                    textBox1.Clear;
+                    textBox1.Focus;
 
                     cont++;
 
@@ -65,6 +66,11 @@ namespace NodoArbol
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
