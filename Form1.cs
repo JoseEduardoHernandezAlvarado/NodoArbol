@@ -39,13 +39,13 @@ namespace NodoArbol
         //Evento que permitira insertar un nodo al arbol (código del boton "Insertar nodo" del formulario mostrado en la figura)
         private void btnInsertar_Click_1(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (CajaDTexto.Text == "")
             {
                 MessageBox.Show("Debe ingresar un valor.");
             }
             else
             {
-                Dato = int.Parse(textBox1.Text);
+                Dato = int.Parse(CajaDTexto.Text);
                 if (Dato <= 0 || Dato >= 100)
                 {
                     MessageBox.Show("Debe ingresar un valor entre 1 y 99", "Error de ingreso");
@@ -54,14 +54,17 @@ namespace NodoArbol
                 {
                     mi_Arbol.Insertar(Dato);
 
-
+                    MessageBox.Show(" Numero ingresado Correctamente"); // Muestra el mensaje "Listo"
+                    CajaDTexto.Clear(); // Limpia el TextBox
+                    CajaDTexto.Focus(); // Mueve el foco al TextBox
                     cont++;
+                   Refresh();
+                    Refresh(); 
 
-                    Refresh();
-                    Refresh();
                 }
             }
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -76,5 +79,72 @@ namespace NodoArbol
         {
             Close();
         }
+
+        private void btnPreOrden_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            if (CajaDTexto.Text == "")
+            {
+                MessageBox.Show("Debe ingresar el valor a eliminar");
+            }
+            else
+            {
+                Dato = Convert.ToInt32(CajaDTexto.Text);
+                if (Dato <= 0 || Dato >= 100)
+                {
+                    MessageBox.Show("Sólo se adminten valores entre 1 y 99", "Error de Ingreso");
+                }
+                else
+                {
+                    mi_Arbol.Eliminar(Dato);
+                    CajaDTexto.Clear();
+                    CajaDTexto.Focus();
+                    cont--;
+                    Refresh();
+                    Refresh();
+                }
+            }
+        }
+
+        private void btnInOrden_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPostOrden_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (CajaDTexto.Text == "")
+            {
+                MessageBox.Show("Debe ingresar el valor a buscar");
+            }
+            else
+            {
+                Dato = Convert.ToInt32(CajaDTexto.Text);
+                if (Dato <= 0 || Dato >= 100)
+                {
+                    MessageBox.Show("Sólo se admiten valores entre 1 y 99", "Error de Ingreso");
+                }
+                else
+                {
+                    mi_Arbol.Buscar(Dato);
+                    CajaDTexto.Clear();
+                    CajaDTexto.Focus();
+                    Refresh();
+                    Refresh();
+                }
+            }
+        }
+
     }
 }
+

@@ -7,7 +7,8 @@ using System.Threading;
 
 namespace NodoArbol
 {
-    class Arbol_Binario
+    class 
+        Arbol_Binario
     {
         public Nodo_Arbol Raiz;
         public Nodo_Arbol aux;
@@ -36,7 +37,7 @@ namespace NodoArbol
                 Raiz = Raiz.Insertar(x, Raiz, Raiz.nivel);
             }
         }
-
+         
         // Función para eliminar un nodo (valor) del Árbol Binario
         public void Eliminar(int x)
         {
@@ -45,7 +46,17 @@ namespace NodoArbol
             else
             { Raiz.Eliminar(x, ref Raiz); }
         }
+        
+            
+            //Busqueda de dato
+            public void Buscar(int x)
+        {
+            if (Raiz != null)
+            {
+                Raiz.Buscar(x, Raiz);
+            }
 
+        }
 
         // Funciones para el dibujo del Árbol Binario en el Formulario
         // Función que dibuja el Árbol Binario
@@ -107,7 +118,7 @@ namespace NodoArbol
             if (raiz != null)
             {
                 RecorridoEnOrden(raiz.Izquierdo);
-                Console.Write(raiz.Dato + " ");
+                Console.Write(raiz.info + " ");
                 RecorridoEnOrden(raiz.Derecho);
             }
         }
@@ -116,7 +127,7 @@ namespace NodoArbol
         {
             if (raiz != null)
             {
-                Console.Write(raiz.Dato + " ");
+                Console.Write(raiz.info + " ");
                 RecorridoPreOrden(raiz.Izquierdo);
                 RecorridoPreOrden(raiz.Derecho);
             }
@@ -128,7 +139,7 @@ namespace NodoArbol
             {
                 RecorridoPostOrden(raiz.Izquierdo);
                 RecorridoPostOrden(raiz.Derecho);
-                Console.Write(raiz.Dato + " ");
+                Console.Write(raiz.info + " ");
             }
         }
 

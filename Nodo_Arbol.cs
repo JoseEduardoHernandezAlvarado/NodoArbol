@@ -251,9 +251,14 @@ namespace NodoArbol
         // Funcion para dibujar las ramas de los nodos izquierdo y derecho
         public void DibujarRamas(Graphics grafo, Pen Lapiz)
         {
-            if (Izquierdo != null) // Dibujara rama izquierda
+            if (Izquierdo != null)
             {
                 grafo.DrawLine(Lapiz, CoordenadaX, CoordenadaY, Izquierdo.CoordenadaX, Izquierdo.CoordenadaY);
+                Izquierdo.DibujarRamas(grafo, Lapiz);
+            }
+            if (Derecho != null)
+            {
+                grafo.DrawLine(Lapiz, CoordenadaX, CoordenadaY, Derecho.CoordenadaX, Derecho.CoordenadaY);
                 Derecho.DibujarRamas(grafo, Lapiz);
             }
         }
