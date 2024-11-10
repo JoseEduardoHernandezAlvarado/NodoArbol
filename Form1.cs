@@ -37,16 +37,16 @@ namespace NodoArbol
         }
 
         //Evento que permitira insertar un nodo al arbol (código del boton "Insertar nodo" del formulario mostrado en la figura)
-        private void btnInsertar_Click(object sender, EventArgs e)
+        private void btnInsertar_Click_1(object sender, EventArgs e)
         {
-            if(textBox1.Text == "")
+            if (textBox1.Text == "")
             {
                 MessageBox.Show("Debe ingresar un valor.");
             }
             else
             {
                 Dato = int.Parse(textBox1.Text);
-                if(Dato <= 0 || Dato >= 100)
+                if (Dato <= 0 || Dato >= 100)
                 {
                     MessageBox.Show("Debe ingresar un valor entre 1 y 99", "Error de ingreso");
                 }
@@ -62,7 +62,6 @@ namespace NodoArbol
                 }
             }
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
