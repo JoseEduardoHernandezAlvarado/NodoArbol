@@ -54,8 +54,6 @@ namespace NodoArbol
                 {
                     mi_Arbol.Insertar(Dato);
 
-                    textBox1.Clear;
-                    textBox1.Focus;
 
                     cont++;
 
@@ -73,6 +71,11 @@ namespace NodoArbol
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

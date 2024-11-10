@@ -31,8 +31,8 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblMenu = new System.Windows.Forms.Label();
             this.lblMensaje = new System.Windows.Forms.Label();
-            this.txtMeter = new System.Windows.Forms.TextBox();
-            this.btnInsetar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnInsertar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -75,25 +75,24 @@
             this.lblMensaje.Text = "...";
             this.lblMensaje.Visible = false;
             // 
-            // txtMeter
+            // textBox1
             // 
-            this.txtMeter.Location = new System.Drawing.Point(148, 227);
-            this.txtMeter.Name = "txtMeter";
-            this.txtMeter.Size = new System.Drawing.Size(100, 20);
-            this.txtMeter.TabIndex = 10;
-            this.txtMeter.Visible = false;
+            this.textBox1.Location = new System.Drawing.Point(148, 227);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 10;
             // 
-            // btnInsetar
+            // btnInsertar
             // 
-            this.btnInsetar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnInsetar.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsetar.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnInsetar.Location = new System.Drawing.Point(38, 101);
-            this.btnInsetar.Name = "btnInsetar";
-            this.btnInsetar.Size = new System.Drawing.Size(75, 28);
-            this.btnInsetar.TabIndex = 2;
-            this.btnInsetar.Text = "Insertar";
-            this.btnInsetar.UseVisualStyleBackColor = false;
+            this.btnInsertar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnInsertar.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsertar.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnInsertar.Location = new System.Drawing.Point(38, 101);
+            this.btnInsertar.Name = "btnInsertar";
+            this.btnInsertar.Size = new System.Drawing.Size(75, 28);
+            this.btnInsertar.TabIndex = 2;
+            this.btnInsertar.Text = "Insertar";
+            this.btnInsertar.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
             // 
@@ -131,6 +130,7 @@
             this.btnSalir.TabIndex = 8;
             this.btnSalir.Text = "Salida";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnPreOrden
             // 
@@ -183,8 +183,8 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnInsetar);
-            this.Controls.Add(this.txtMeter);
+            this.Controls.Add(this.btnInsertar);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.lblMenu);
             this.Controls.Add(this.lblTitulo);
@@ -201,8 +201,8 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblMenu;
         private System.Windows.Forms.Label lblMensaje;
-        private System.Windows.Forms.TextBox txtMeter;
-        private System.Windows.Forms.Button btnInsetar;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnSalir;
