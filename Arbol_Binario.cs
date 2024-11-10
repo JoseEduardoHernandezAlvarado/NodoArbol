@@ -101,5 +101,51 @@ namespace NodoArbol
                 }
             }
         }
+        // Métodos de recorrido
+        public void RecorridoEnOrden(Nodo_Arbol raiz)
+        {
+            if (raiz != null)
+            {
+                RecorridoEnOrden(raiz.Izquierdo);
+                Console.Write(raiz.Dato + " ");
+                RecorridoEnOrden(raiz.Derecho);
+            }
+        }
+
+        public void RecorridoPreOrden(Nodo_Arbol raiz)
+        {
+            if (raiz != null)
+            {
+                Console.Write(raiz.Dato + " ");
+                RecorridoPreOrden(raiz.Izquierdo);
+                RecorridoPreOrden(raiz.Derecho);
+            }
+        }
+
+        public void RecorridoPostOrden(Nodo_Arbol raiz)
+        {
+            if (raiz != null)
+            {
+                RecorridoPostOrden(raiz.Izquierdo);
+                RecorridoPostOrden(raiz.Derecho);
+                Console.Write(raiz.Dato + " ");
+            }
+        }
+
+        // Método para mostrar el árbol en los tres recorridos
+        public void MostrarRecorridos()
+        {
+            Console.WriteLine("Recorrido en orden:");
+            RecorridoEnOrden(Raiz);
+            Console.WriteLine();
+
+            Console.WriteLine("Recorrido en preorden:");
+            RecorridoPreOrden(Raiz);
+            Console.WriteLine();
+
+            Console.WriteLine("Recorrido en postorden:");
+            RecorridoPostOrden(Raiz);
+            Console.WriteLine();
+        }
     }
 }
