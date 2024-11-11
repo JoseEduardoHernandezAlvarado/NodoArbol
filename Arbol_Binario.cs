@@ -7,8 +7,7 @@ using System.Threading;
 
 namespace NodoArbol
 {
-    class 
-        Arbol_Binario
+    class Arbol_Binario
     {
         public Nodo_Arbol Raiz;
         public Nodo_Arbol aux;
@@ -47,9 +46,8 @@ namespace NodoArbol
             { Raiz.Eliminar(x, ref Raiz); }
         }
         
-            
-            //Busqueda de dato
-            public void Buscar(int x)
+       //Busqueda de dato
+        public void Buscar(int x)
         {
             if (Raiz != null)
             {
@@ -62,7 +60,7 @@ namespace NodoArbol
         // Función que dibuja el Árbol Binario
         public void DibujarArbol(Graphics grafo, Font fuente, Brush Relleno, Brush RellenoFuente, Pen Lapiz, Brush encuentro)
         {
-            int x = 400;  // Posiciones de raíz del árbol
+            int x = 280;  // Posiciones de raíz del árbol
             int y = 75;
 
             if (Raiz == null) return;
@@ -71,7 +69,7 @@ namespace NodoArbol
             Raiz.DibujarRamas(grafo, Lapiz);  // Dibuja los Enlaces entre nodos
             Raiz.DibujarNodo(grafo, fuente, Relleno, RellenoFuente, Lapiz, encuentro); // Dibujar todos los Nodos
         }
-        public int x1 = 400;        // Posiciones iniciales de la raíz del arbol
+        public int x1 = 280;        // Posiciones iniciales de la raíz del arbol
         public int y2 = 75;
 
         // Función para colorear los nodos
@@ -113,50 +111,34 @@ namespace NodoArbol
             }
         }
         // Métodos de recorrido
-        public void RecorridoEnOrden(Nodo_Arbol raiz)
+        public void RecorridoEnOrden(Nodo_Arbol raiz, Label lblResultado)
         {
             if (raiz != null)
             {
-                RecorridoEnOrden(raiz.Izquierdo);
-                Console.Write(raiz.info + " ");
-                RecorridoEnOrden(raiz.Derecho);
+                RecorridoEnOrden(raiz.Izquierdo, lblResultado);
+                lblResultado.Text += raiz.info + ", ";
+                RecorridoEnOrden(raiz.Derecho, lblResultado);
             }
         }
 
-        public void RecorridoPreOrden(Nodo_Arbol raiz)
+        public void RecorridoPreOrden(Nodo_Arbol raiz, Label lblResultado)
         {
             if (raiz != null)
             {
-                Console.Write(raiz.info + " ");
-                RecorridoPreOrden(raiz.Izquierdo);
-                RecorridoPreOrden(raiz.Derecho);
+                lblResultado.Text += raiz.info + ", ";
+                RecorridoPreOrden(raiz.Izquierdo, lblResultado);
+                RecorridoPreOrden(raiz.Derecho, lblResultado);
             }
         }
 
-        public void RecorridoPostOrden(Nodo_Arbol raiz)
+        public void RecorridoPostOrden(Nodo_Arbol raiz, Label lblResultado)
         {
             if (raiz != null)
             {
-                RecorridoPostOrden(raiz.Izquierdo);
-                RecorridoPostOrden(raiz.Derecho);
-                Console.Write(raiz.info + " ");
+                RecorridoPostOrden(raiz.Izquierdo, lblResultado);
+                RecorridoPostOrden(raiz.Derecho, lblResultado);
+                lblResultado.Text += raiz.info + ", ";
             }
-        }
-
-        // Método para mostrar el árbol en los tres recorridos
-        public void MostrarRecorridos()
-        {
-            Console.WriteLine("Recorrido en orden:");
-            RecorridoEnOrden(Raiz);
-            Console.WriteLine();
-
-            Console.WriteLine("Recorrido en preorden:");
-            RecorridoPreOrden(Raiz);
-            Console.WriteLine();
-
-            Console.WriteLine("Recorrido en postorden:");
-            RecorridoPostOrden(Raiz);
-            Console.WriteLine();
         }
     }
 }

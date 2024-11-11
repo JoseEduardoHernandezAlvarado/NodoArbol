@@ -13,6 +13,7 @@ namespace NodoArbol
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -46,43 +47,24 @@ namespace NodoArbol
             else
             {
                 Dato = int.Parse(CajaDTexto.Text);
-                if (Dato <= 0 || Dato >= 100)
+                if (Dato < 0 || Dato > 100)
                 {
-                    MessageBox.Show("Debe ingresar un valor entre 1 y 99", "Error de ingreso");
+                    MessageBox.Show("Debe ingresar un valor entre 0 y 100", "Error de ingreso");
+                    CajaDTexto.Clear(); // Limpia el TextBox
+                    CajaDTexto.Focus(); // Mueve el foco al TextBox
                 }
                 else
                 {
                     mi_Arbol.Insertar(Dato);
 
-                    MessageBox.Show(" Numero ingresado Correctamente"); // Muestra el mensaje "Listo"
                     CajaDTexto.Clear(); // Limpia el TextBox
                     CajaDTexto.Focus(); // Mueve el foco al TextBox
                     cont++;
-                   Refresh();
+                    Refresh();
                     Refresh(); 
 
                 }
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnPreOrden_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -95,9 +77,9 @@ namespace NodoArbol
             else
             {
                 Dato = Convert.ToInt32(CajaDTexto.Text);
-                if (Dato <= 0 || Dato >= 100)
+                if (Dato < 0 || Dato > 100)
                 {
-                    MessageBox.Show("Sólo se adminten valores entre 1 y 99", "Error de Ingreso");
+                    MessageBox.Show("Sólo se adminten valores entre 0 y 100", "Error de Ingreso");
                 }
                 else
                 {
@@ -111,16 +93,6 @@ namespace NodoArbol
             }
         }
 
-        private void btnInOrden_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnPostOrden_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (CajaDTexto.Text == "")
@@ -130,9 +102,9 @@ namespace NodoArbol
             else
             {
                 Dato = Convert.ToInt32(CajaDTexto.Text);
-                if (Dato <= 0 || Dato >= 100)
+                if (Dato < 0 || Dato > 100)
                 {
-                    MessageBox.Show("Sólo se admiten valores entre 1 y 99", "Error de Ingreso");
+                    MessageBox.Show("Sólo se admiten valores entre 0 y 100", "Error de Ingreso");
                 }
                 else
                 {
@@ -143,6 +115,37 @@ namespace NodoArbol
                     Refresh();
                 }
             }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnPreOrden_Click(object sender, EventArgs e)
+        {
+            lblMensaje.Text = null;
+            lblMensaje.Text = "Recorrido PreOrden:\n";
+            mi_Arbol.RecorridoPreOrden(mi_Arbol.Raiz, lblMensaje);
+        }
+
+        private void btnInOrden_Click(object sender, EventArgs e)
+        {
+            lblMensaje.Text = null;
+            lblMensaje.Text = "Recorrido InOrden:\n";
+            mi_Arbol.RecorridoEnOrden(mi_Arbol.Raiz, lblMensaje);
+        }
+
+        private void btnPostOrden_Click(object sender, EventArgs e)
+        {
+            lblMensaje.Text = null;
+            lblMensaje.Text = "Recorrido PostOrden:\n";
+            mi_Arbol.RecorridoPostOrden(mi_Arbol.Raiz, lblMensaje); 
+        }
+        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
 
     }
