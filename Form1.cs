@@ -50,8 +50,6 @@ namespace NodoArbol
                 if (Dato < 0 || Dato > 100)
                 {
                     MessageBox.Show("Debe ingresar un valor entre 0 y 100", "Error de ingreso");
-                    CajaDTexto.Clear(); // Limpia el TextBox
-                    CajaDTexto.Focus(); // Mueve el foco al TextBox
                 }
                 else
                 {
@@ -77,9 +75,9 @@ namespace NodoArbol
             else
             {
                 Dato = Convert.ToInt32(CajaDTexto.Text);
-                if (Dato < 0 || Dato > 100)
+                if (Dato <= 0 || Dato >= 100)
                 {
-                    MessageBox.Show("Sólo se adminten valores entre 0 y 100", "Error de Ingreso");
+                    MessageBox.Show("Sólo se adminten valores entre 1 y 99", "Error de Ingreso");
                 }
                 else
                 {

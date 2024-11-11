@@ -5,6 +5,8 @@ using System.Drawing;    // Librería para dibujar figuras geométricas
 using System.Windows.Forms;
 using System.Threading;
 using NodoArbol;
+using System.Security.Cryptography.X509Certificates;
+using System.Diagnostics;
 
 
 namespace NodoArbol
@@ -278,10 +280,11 @@ namespace NodoArbol
         // Funcion para dibujar el nodo en la posición especificada
         public void DibujarNodo(Graphics grafo, Font fuente, Brush Relleno, Brush RellenoFuente, Pen Lapiz, Brush encuentro)
         {
-            // Si el nodo está resaltado, cambia el color de fondo por un tiempo limitado
+
+            //Si el nodo está resaltado, cambia el color de fondo por un tiempo limitado
             Brush colorNodo = Resaltado ? Brushes.Red : Relleno;  // Cambiar el color si el nodo está resaltado
 
-            // Dibuja el contorno del nodo
+            //Dibuja el contorno del nodo
             Rectangle rect = new Rectangle((int)(CoordenadaX - Radio / 2), (int)(CoordenadaY - Radio / 2), Radio, Radio);
             grafo.FillEllipse(colorNodo, rect);  // Relleno con el color adecuado
             grafo.DrawEllipse(Lapiz, rect);
